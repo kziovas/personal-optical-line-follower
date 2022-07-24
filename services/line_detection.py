@@ -1,8 +1,4 @@
-import numpy as np
-import cv2, PIL
-import matplotlib.pyplot as plt
-import matplotlib as mpl
-import PIL.Image
+import cv2
 
 
 class Camera:
@@ -25,48 +21,6 @@ class ShowImage:
 
     def clear(self):
         cv2.destroyAllWindows()
-
-
-class RobotCentering:
-    def __init__(self, width=640):
-        self.width = width
-        self.step = int(width / 5)
-        self.w1 = self.step * 2
-        self.w2 = self.step * 3
-
-    def direction(self, posx):
-        if posx > 0 and posx < self.w1:
-            print("Go Right")
-            return 2
-        elif posx > self.w2 and posx < self.width:
-            print("Go Left")
-            return 1
-        elif posx == 0:
-            print("No detection")
-            return -1
-        else:
-            print("Stay")
-            return 0
-
-
-class RobotFollowing:
-    def __init__(self, width=640):
-        self.width = width
-        self.max = int(width / 2)
-
-    def direction(self, rx):
-        if rx < self.max and rx > 0:
-            print("Forward")
-            return 1
-        elif rx > (self.max + 30):
-            print("Back")
-            return 2
-        elif rx == 0:
-            print("No detection")
-            return -1
-        else:
-            print("Stay")
-            return 0
 
 
 class LineDetector:

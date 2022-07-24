@@ -11,7 +11,7 @@ class PID:
         self.KI = KI
         self.KD = KD
 
-    def calculate_response(self, desired_value, actual_value, start_time, end_time):
+    def calculate_response(self, actual_value, start_time, end_time, desired_value=135):
         error = desired_value - actual_value
         iteration_time = end_time - start_time
         self.integral = self.integral + (error * iteration_time)
